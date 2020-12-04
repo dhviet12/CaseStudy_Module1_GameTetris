@@ -3,13 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Game Tetris</title>
+    <style>
+
+        div {
+            text-align:center;
+            font-size: 25px;
+            font-weight:bold;
+            font-family: Bahnschrift;
+        }
+        canvas {
+            display: block;
+            margin: auto;
+        }
+    </style>
 
 </head>
 <body>
-<canvas id="mycanvas" width="600" height="400"></canvas>
+<div>
+    <canvas id="mycanvas" width="200" height="400"></canvas>
+    <div> Score: </div>
+    <div id="score">0</div>
+</div>
+
+
+<audio autoplay loop>
+    <source src="./sound/tetris-gameboy-01.mp3" type="audio/mpeg">
+</audio>
+
+<script type="text/javascript" src="Sound.js"></script>
 <script src="PiecesShape.js"></script>
 <script src="game.js"></script>
-
-
 </body>
 </html>

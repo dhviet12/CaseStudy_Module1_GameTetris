@@ -1,19 +1,22 @@
 let canvas=document.getElementById('mycanvas');
 let ctx=canvas.getContext('2d');
-let row=20; // row of board
-let col=10 // column of board
-let squareSize=20;
-let emptySquare= 'white';
-
+let score=0;
+let gameOver= false;
+let soundClearRow = new Sound('./sound/clear.wav');
+let soundFall = new Sound('./sound/fall.wav');
 // ve o vuong
 function drawSquare(x,y,color){
     ctx.fillStyle= color;
     ctx.fillRect(x*squareSize,y*squareSize,squareSize,squareSize);
     ctx.strokeStyle='black';
-    ctx.strokeRect(x*squareSize,y*squareSize,squareSize,squareSize)
+    ctx.strokeRect(x*squareSize,y*squareSize,squareSize,squareSize);
 }
 
 // ve bang tao thanh tu cac o vuong mau trang
+let row=20; // row of board
+let col=10 // column of board
+let squareSize=20;
+let emptySquare= 'white';
 let board=[];
 for(r=0; r< row; r++){
     board[r]= [];
@@ -32,17 +35,17 @@ drawBoard();
 
 function Tetromino(shape, color){
     this.shape= shape; // Z,T,O,I,L,S
-    this.shapeI= 0; // index in Shape array
+    this.shapeI= 0; // index in Shape array, default shape 0
     this.currentShape=this.shape[this.shapeI];
     this.color=color;
     this.x= 3;
-    this.y= 0;
+    this.y= -2;
     this.draw = function(){
         for (r=0;r<this.currentShape.length;r++){
             for (c=0; c<this.currentShape.length;c++)
-                // Duyet mang Z[0][r][c]
                 if(this.currentShape[r][c]){
                     drawSquare(this.x+c,this.y+r,this.color)
+                    // this.x+c ; this.y+r = toa do cot va hang cua khoi
                 }
         }
     }
@@ -52,9 +55,9 @@ function Tetromino(shape, color){
                 if (!piece[r][c]) {
                     continue;
                 }
-                let newX = this.x + c + x;
-                let newY = this.y + r + y;
-                if (newX < 0 || newX >= col || newY > row) {
+                let newX = this.x + c + x; // toa do X sau khi di chuyen
+                let newY = this.y + r + y; // toa do Y sau khi di chuyen
+                if (newX < 0 || newX >= col || newY >= row) {
                     return true;
                 }
                 if (newY < 0) {
@@ -81,6 +84,10 @@ function Tetromino(shape, color){
             this.unDraw();
             this.y++;
             this.draw();
+        } else {            // k gap va cham => lock khoi + them khoi moi roi xuong
+            this.lock();
+            soundFall.play();
+            piece=randomTetromino();
         }
     }
     this.moveLeft= function (){
@@ -107,10 +114,46 @@ function Tetromino(shape, color){
             this.draw();
         }
     }
-    this.drop= function (){}
-
+    this.lock=function () {
+        for (r = 0; r < this.currentShape.length; r++) {
+            for (c = 0; c < this.currentShape.length; c++) {
+                // Empty square => tiep tuc
+                if (!this.currentShape[r][c]) {
+                    continue;
+                }
+                if(this.y +r <0){
+                    alert('Game Over!')
+                    gameOver=true;
+                    break;
+                }else board[this.y+r][this.x+c]= this.color; // paint color for empty square
+            }
+        }
+        // remove full row
+        for (r=0 ; r< row;r++){
+            let fullRow=true;
+            for(c=0; c< col;c++){
+                fullRow= fullRow && (board[r][c]!= emptySquare);
+            }
+            if(fullRow){
+                // move down the row above the full row
+                for(y=r;y>1;y--){
+                    for(c=0;c<col;c++){
+                        board[y][c]=board[y-1][c];
+                    }
+                }
+                for(c=0; c<col;c++){
+                    board[0][c]= emptySquare;
+                }
+                score += 1;
+                soundClearRow.play();
+            }
+        }
+        // update board
+        drawBoard();
+        //update score
+        document.getElementById('score').innerHTML=score;
+    }
 }
-
 let pieces = [
     [Z,'red'],
     [S,'green'],
@@ -121,11 +164,21 @@ let pieces = [
     [J,'pink'],
 ]
 function randomTetromino(){
-    let random= Math.floor(Math.random()*pieces.length)
-    return new Tetromino (pieces[random][0],pieces[random][1]);
+    let randomS= Math.floor(Math.random()*pieces.length);
+    let randomC= Math.floor(Math.random()*pieces.length);
+    return new Tetromino (pieces[randomS][0],pieces[randomC][1]);
 }
-let piece=randomTetromino();
-piece.draw();
+
+
+let piece= randomTetromino();
+function drop() {
+    if (!gameOver) {
+        setInterval('piece.moveDown()', 1000);
+    }
+
+}
+drop();
+
 
 // Su kien phim
 document.addEventListener('keydown',control);

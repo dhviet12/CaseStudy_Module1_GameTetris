@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="60a7b9c6-9cd2-4151-ad8f-f0818e56dec7" name="Default Changelist" comment="" />
+    <list default="true" id="60a7b9c6-9cd2-4151-ad8f-f0818e56dec7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sound.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,16 +39,23 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1kzlgxRDFtvbAtceYj01VSQJMI1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Test/test.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Case_Study_Game_Tetris" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="sshConsole" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -39,21 +70,41 @@
       <workItem from="1606711416854" duration="12958000" />
       <workItem from="1606804231699" duration="6224000" />
       <workItem from="1606830247091" duration="838000" />
-      <workItem from="1606871285290" duration="8092000" />
+      <workItem from="1606871285290" duration="28633000" />
+      <workItem from="1606917241079" duration="3910000" />
+      <workItem from="1606957103312" duration="17039000" />
+      <workItem from="1606983590776" duration="3247000" />
+      <workItem from="1607001905756" duration="7186000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="716" y="164" key="#Notifications" timestamp="1606871292150">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="716" y="164" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1606871292150" />
-    <state x="741" y="95" key="FileChooserDialogImpl" timestamp="1606830258553">
+    <state x="363" y="143" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606966256113">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="741" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1606830258553" />
+    <state x="363" y="143" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1606966256113" />
+    <state x="741" y="95" key="FileChooserDialogImpl" timestamp="1607002204203">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="741" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1607002204203" />
   </component>
 </project>
